@@ -1,0 +1,274 @@
+
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Website Kelas — Responsif</title>
+  <meta name="description" content="Template website kelas responsif, ringan, dan cepat diakses di laptop maupun HP." />
+  <style>
+  
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+    body{background:var(--bg);color:var(--text);line-height:1.6;transition:background 0.4s,color 0.4s;}
+    
+    :root {
+      --bg: #0b1220;
+      --card: #0f1724;
+      --accent: #4f46e5;
+      --muted: #9ca3af;
+      --glass: rgba(255,255,255,0.03);
+      --text: #eef2ff;
+      --radius: 12px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+    }
+
+    body.light {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --accent: #2563eb;
+      --muted: #475569;
+      --glass: rgba(0,0,0,0.05);
+      --text: #0f172a;
+    }
+    
+    /* LOADING SCREEN */
+    #loader{
+      position:fixed;top:0;left:0;width:100%;height:100%;
+      background:var(--bg);color:var(--text);
+      display:flex;justify-content:center;align-items:center;
+      font-size:2rem;z-index:2000;
+      animation:fadeOut 1s ease forwards;
+      animation-delay:2s; /* durasi loader */
+    }
+    @keyframes fadeOut{to{opacity:0;visibility:hidden;}}
+
+    *{box-sizing:border-box}
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      transition:background 0.4s,color 0.4s;
+      -webkit-font-smoothing:antialiased
+    }
+    a{color:inherit;text-decoration:none;transition:color .3s}
+
+    /* layout */
+    .wrap{max-width:980px;margin:0 auto;padding:18px}
+    header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand .logo{
+      width:46px;height:46px;border-radius:10px;
+      background:linear-gradient(90deg,var(--accent),#06b6d4);
+      display:grid;place-items:center;font-weight:700;color:#fff
+    }
+    .title{font-weight:700;font-size:1rem}
+    .hamburger{margin-left:auto;display:flex;gap:8px}
+    button.icon{
+      background:transparent;border:0;color:inherit;font-size:20px;cursor:pointer
+    }
+
+    /* hero */
+    .hero{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:14px;border-radius:var(--radius);border:1px solid var(--glass)
+    }
+    .hero h1{margin:0 0 6px 0;font-size:1.25rem}
+    .hero p{margin:0;color:var(--muted);font-size:0.95rem}
+
+    /* cards */
+    .grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px}
+    .card{
+      background:var(--card);padding:12px;border-radius:10px;
+      border:1px solid var(--glass);
+      transition:background 0.4s,color 0.4s
+    }
+    .walikelas{display:flex;gap:12px;align-items:center}
+    .walikelas img{width:72px;height:72px;border-radius:10px;object-fit:cover}
+
+    /* list */
+    .list{display:flex;flex-direction:column;gap:8px}
+    .person{display:flex;gap:10px;align-items:center}
+    .person img{width:52px;height:52px;border-radius:8px;object-fit:cover}
+    .meta small{display:block;color:var(--muted);font-size:0.85rem}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .gallery img{width:100%;height:80px;object-fit:cover;border-radius:8px;transition:transform .3s}
+    .gallery img:hover{transform:scale(1.05)}
+
+    /* footer */
+    footer{margin-top:14px;color:var(--muted);font-size:0.9rem;transition:color .3s}
+
+    /* animations */
+    .fade-in{
+      opacity:0;transform:translateY(20px);
+      transition:all 480ms cubic-bezier(.2,.9,.3,1)
+    }
+    .fade-in.show{opacity:1;transform:none}
+
+    /* responsive */
+    @media (min-width:700px){
+      .grid{grid-template-columns:2fr 1fr}
+      .gallery{grid-template-columns:repeat(4,1fr)}
+      .hero h1{font-size:1.5rem}
+    }
+    @media (min-width:980px){
+      .wrap{padding:28px}
+      .grid{gap:18px}
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- LOADING -->
+  <div id="loader">✨ Selamat Datang ✨</div>
+
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">XI-I</div>
+        <div>
+          <div class="title">SMAN 6 Madiun — XI-I</div>
+          <div style="font-size:12px;color:var(--muted)">Responsive • Ringan • Cepat</div>
+        </div>
+      </div>
+      <div class="hamburger">
+        <button class="icon" id="themeToggle" title="Toggle Light/Dark">🌙</button>
+        <button class="icon" id="openMenu" aria-expanded="false" aria-controls="menu">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero card fade-in" id="sambutan">
+        <h1>Sambutan Wali Kelas</h1>
+        <p>Selamat datang! Ini versi responsif sehingga dapat diakses nyaman di HP maupun laptop. Gunakan tombol menu untuk navigasi cepat.</p>
+        <div style="margin-top:12px" class="walikelas">
+          <img src="https://uploads.onecompiler.io/4359cvpkx/435b6yzcb/guru_dimas.jpg" alt="Wali Kelas" loading="lazy">
+          <div>
+            <strong>Dimas Ardianto S.Pd., Gr.</strong>
+            <div style="color:var(--muted);font-size:0.92rem">Wali Kelas XI • Kontak: 0812-xxxx-xxxx</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section class="card fade-in" id="pengurus">
+          <h2>Pengurus Kelas</h2>
+          <div class="list" style="margin-top:10px">
+            <div class="person"><img src="https://uploads.onecompiler.io/4359cvpkx/435b6yzcb/WhatsApp%20Image%202025-09-09%20at%2008.46.39.jpeg" alt="Ketua"><div class="meta"><strong>Anggoroseno Febrian P.</strong><small>Ketua • 0812-xxxx-xxxx</small></div></div>
+            <div class="person"><img src="https://uploads.onecompiler.io/4359cvpkx/435b6yzcb/WhatsApp%20Image%202025-09-09%20at%2008.46.31.jpeg" alt="Wakil"><div class="meta"><strong>Rafflesia Henri Donavan</strong><small>Wakil Ketua</small></div></div>
+            <div class="person"><img src="https://uploads.onecompiler.io/4359cvpkx/435b6yzcb/WhatsApp%20Image%202025-09-09%20at%2008.46.27.jpeg" alt="Sekretaris"><div class="meta"><strong>Deva Aprilia Putri</strong><small>Sekretaris 1</small></div></div>
+            <div class="person"><img src="https://uploads.onecompiler.io/4359cvpkx/435b6yzcb/WhatsApp%20Image%202025-09-09%20at%2008.46.35.jpeg" alt="Sekretaris"><div class="meta"><strong>Hardiansyah Fadhlih A.</strong><small>Sekretaris 2</small></div></div>
+            <div class="person"><img src="https://uploads.onecompiler.io/4359cvpkx/435b6yzcb/WhatsApp%20Image%202025-09-09%20at%2008.46.29.jpeg" alt="Bendahara"><div class="meta"><strong>Imelda Rahayu Pinesi</strong><small>Bendahara 1</small></div></div>
+            <div class="person"><img src="https://uploads.onecompiler.io/4359cvpkx/435b6yzcb/WhatsApp%20Image%202025-09-09%20at%2008.46.33.jpeg" alt="Bendahara"><div class="meta"><strong>Chania Putri Ramdani</strong><small>Bendahara 2</small></div></div>
+          </div>
+        </section>
+
+        <aside class="card fade-in" id="anggota">
+          <h2>Anggota</h2>
+          <div style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div class="person"><img src="https://uploads.onecompiler.io/4359cvpkx/435b6yzcb/WhatsApp%20Image%202025-09-08%20at%2011.06.27.jpeg" alt="Rizky"><div class="meta"><strong>Rizky</strong><small>NIS 12345</small></div></div>
+            <div class="person"><img src="https://uploads.onecompiler.io/4359cvpkx/435b6yzcb/WhatsApp%20Image%202025-09-08%20at%2011.06.27.jpeg" alt="Lina"><div class="meta"><strong>Lina</strong><small>NIS 12346</small></div></div>
+            <div class="person"><img src="images/anggota/3.jpg" alt="Arif"><div class="meta"><strong>Arif</strong><small>NIS 12347</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+            <div class="person"><img src="images/anggota/4.jpg" alt="Fajar"><div class="meta"><strong>Fajar</strong><small>NIS 12348</small></div></div>
+
+          </div>
+        </aside>
+      </div>
+
+      <section class="card fade-in" id="galeri" style="margin-top:12px">
+        <h2>Galeri</h2>
+        <div class="gallery" style="margin-top:10px">
+          <img src="images/galeri/1.jpg" alt="g1" loading="lazy">
+          <img src="images/galeri/2.jpg" alt="g2" loading="lazy">
+          <img src="images/galeri/3.jpg" alt="g3" loading="lazy">
+          <img src="images/galeri/4.jpg" alt="g4" loading="lazy">
+          <img src="images/galeri/5.jpg" alt="g5" loading="lazy">
+          <img src="images/galeri/6.jpg" alt="g6" loading="lazy">
+        </div>
+      </section>
+
+      <footer>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+          <div>© 2025 SMPN 13 Madiun — Website Kelas</div>
+          <div style="font-size:13px">Versi responsif: cocok di HP & Laptop</div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Hidden menu overlay -->
+    <nav id="menu" aria-hidden="true" style="position:fixed;inset:0;display:none;backdrop-filter:blur(6px);z-index:80;"> 
+      <div style="background:var(--card);padding:14px;border-radius:12px;max-width:320px;margin:18px;">
+        <button id="closeMenu" class="icon" style="float:right">✕</button>
+        <h3 style="margin-top:6px">Menu Cepat</h3>
+        <ul style="list-style:none;padding:0;margin-top:12px;display:flex;flex-direction:column;gap:10px">
+          <li><a href="#sambutan">Sambutan</a></li>
+          <li><a href="#pengurus">Pengurus</a></li>
+          <li><a href="#anggota">Anggota</a></li>
+          <li><a href="#galeri">Galeri</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+      // Progressive reveal on scroll
+      const observer = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){ entry.target.classList.add('show'); }
+        });
+      },{threshold:0.15});
+      document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+      // Menu open/close
+      const menu=document.getElementById('menu');
+      const open=document.getElementById('openMenu');
+      const close=document.getElementById('closeMenu');
+      open.addEventListener('click', ()=>{ menu.style.display='block'; menu.setAttribute('aria-hidden','false'); open.setAttribute('aria-expanded','true'); });
+      close.addEventListener('click', ()=>{ menu.style.display='none'; menu.setAttribute('aria-hidden','true'); open.setAttribute('aria-expanded','false'); });
+      menu.addEventListener('click', e=>{ if(e.target===menu){ menu.style.display='none'; menu.setAttribute('aria-hidden','true'); open.setAttribute('aria-expanded','false'); } });
+
+      // Dark/Light toggle
+      const btn=document.getElementById('themeToggle');
+      btn.addEventListener('click',()=>{
+        document.body.classList.toggle('light');
+        btn.textContent = document.body.classList.contains('light') ? '☀️' : '🌙';
+      });
+    });
+  </script>
+</body>
+</html>
